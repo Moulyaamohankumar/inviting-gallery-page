@@ -31,44 +31,46 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         scrolled 
-          ? 'bg-dark-card/80 backdrop-blur-xl border-b border-electric-cyan/20 shadow-glow' 
+          ? 'bg-dark-surface/20 backdrop-blur-2xl border-b border-electric-cyan/10 shadow-2xl' 
           : 'bg-transparent'
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 py-4">
+        <div className="flex items-center justify-between h-14 py-2">
           {/* Logo */}
           <Link 
             to="/" 
-            className="text-xl font-heading font-bold text-electric-cyan hover:text-neon-pink transition-all duration-300 hover:drop-shadow-glow flex-shrink-0"
+            className="text-lg font-heading font-bold bg-gradient-to-r from-electric-cyan via-neon-pink to-electric-cyan bg-clip-text text-transparent hover:scale-105 transition-all duration-300 hover:drop-shadow-glow flex-shrink-0"
           >
             Veeresh S K
           </Link>
 
-          {/* Navigation Links - Always Visible */}
-          <div className="flex items-center justify-center flex-1 space-x-2 sm:space-x-4 lg:space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-xs sm:text-sm lg:text-base font-medium transition-all duration-300 relative group px-2 py-1 rounded-lg ${
-                  location.pathname === item.path
-                    ? 'text-electric-cyan drop-shadow-glow bg-electric-cyan/10'
-                    : 'text-foreground/80 hover:text-electric-cyan hover:drop-shadow-glow hover:bg-dark-card/30'
-                }`}
-              >
-                {item.label}
-                <span className={`absolute -bottom-0.5 left-2 right-2 h-0.5 bg-gradient-to-r from-electric-cyan to-neon-pink transition-all duration-300 ${
-                  location.pathname === item.path ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                }`} />
-              </Link>
-            ))}
+          {/* Navigation Links - Sleek Center Design */}
+          <div className="flex items-center justify-center flex-1 mx-8">
+            <div className="flex items-center space-x-1 bg-dark-surface/30 backdrop-blur-xl rounded-full border border-electric-cyan/20 px-2 py-1.5 shadow-lg">
+              {navItems.map((item, index) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`text-xs font-medium transition-all duration-300 relative group px-3 py-1.5 rounded-full ${
+                    location.pathname === item.path
+                      ? 'text-dark-surface bg-gradient-to-r from-electric-cyan to-neon-pink shadow-glow' 
+                      : 'text-foreground/70 hover:text-electric-cyan hover:bg-electric-cyan/10'
+                  }`}
+                >
+                  {item.label}
+                  {location.pathname !== item.path && (
+                    <span className="absolute inset-0 rounded-full bg-gradient-to-r from-electric-cyan/0 via-electric-cyan/5 to-electric-cyan/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  )}
+                </Link>
+              ))}
+            </div>
           </div>
 
-          {/* Social Links - Always Visible */}
-          <div className="flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
+          {/* Social Links - Minimalist Design */}
+          <div className="flex items-center space-x-1 bg-dark-surface/30 backdrop-blur-xl rounded-full border border-electric-cyan/20 px-2 py-1.5 shadow-lg flex-shrink-0">
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
@@ -77,10 +79,10 @@ const Navigation = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-1.5 lg:p-2 text-foreground/60 hover:text-electric-cyan transition-all duration-300 rounded-lg hover:bg-dark-card/50 hover:drop-shadow-glow border border-transparent hover:border-electric-cyan/30"
+                  className="p-2 text-foreground/60 hover:text-electric-cyan transition-all duration-300 rounded-full hover:bg-electric-cyan/10 hover:drop-shadow-glow group"
                   aria-label={social.label}
                 >
-                  <Icon size={16} className="lg:w-5 lg:h-5" />
+                  <Icon size={14} className="group-hover:scale-110 transition-transform duration-300" />
                 </a>
               );
             })}
