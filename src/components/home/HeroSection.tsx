@@ -1,18 +1,11 @@
 import { ArrowRight, Download, Star, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Suspense } from 'react';
-import Scene3D from '@/components/3d/Scene3D';
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* 3D Background */}
-      <div className="absolute inset-0 z-0">
-        <Suspense fallback={<div className="w-full h-full bg-gradient-to-br from-background via-background to-card" />}>
-          <Scene3D preset="hero" />
-        </Suspense>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/40"></div>
-      </div>
+      {/* Overlay for better content visibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-dark-surface/30 via-transparent to-dark-surface/50 z-[1]"></div>
 
       {/* Animated Grid Background */}
       <div className="absolute inset-0 z-0">

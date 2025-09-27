@@ -97,7 +97,7 @@ const Achievements = () => {
   };
 
   return (
-    <div className="section-padding">
+    <div className="section-padding pt-24 relative z-10">
       <div className="container-custom">
         {/* Header */}
         <div className="text-center mb-16">

@@ -4,7 +4,7 @@ import SkillsPreview from '@/components/home/SkillsPreview';
 
 const Home = () => {
   return (
-    <div>
+    <div className="relative z-10">
       <HeroSection />
       <FeaturedProjects />
       <SkillsPreview />
