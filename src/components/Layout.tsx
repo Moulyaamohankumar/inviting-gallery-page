@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
 
 const Navigation = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -38,38 +37,38 @@ const Navigation = () => {
           : 'bg-transparent'
       }`}
     >
-        <div className="container-custom">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <div className="container-custom">
+        <div className="flex items-center justify-between h-16 py-4">
           {/* Logo */}
           <Link 
             to="/" 
-            className="text-xl lg:text-2xl font-heading font-bold text-electric-cyan hover:text-neon-pink transition-all duration-300 hover:drop-shadow-glow"
+            className="text-xl font-heading font-bold text-electric-cyan hover:text-neon-pink transition-all duration-300 hover:drop-shadow-glow flex-shrink-0"
           >
             Veeresh S K
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          {/* Navigation Links - Always Visible */}
+          <div className="flex items-center justify-center flex-1 space-x-2 sm:space-x-4 lg:space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`font-medium transition-all duration-300 relative group ${
+                className={`text-xs sm:text-sm lg:text-base font-medium transition-all duration-300 relative group px-2 py-1 rounded-lg ${
                   location.pathname === item.path
-                    ? 'text-electric-cyan drop-shadow-glow'
-                    : 'text-foreground/80 hover:text-electric-cyan hover:drop-shadow-glow'
+                    ? 'text-electric-cyan drop-shadow-glow bg-electric-cyan/10'
+                    : 'text-foreground/80 hover:text-electric-cyan hover:drop-shadow-glow hover:bg-dark-card/30'
                 }`}
               >
                 {item.label}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-electric-cyan to-neon-pink transition-all duration-300 ${
-                  location.pathname === item.path ? 'w-full' : 'w-0 group-hover:w-full'
+                <span className={`absolute -bottom-0.5 left-2 right-2 h-0.5 bg-gradient-to-r from-electric-cyan to-neon-pink transition-all duration-300 ${
+                  location.pathname === item.path ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                 }`} />
               </Link>
             ))}
           </div>
 
-          {/* Social Links (Desktop) */}
-          <div className="hidden lg:flex items-center space-x-4">
+          {/* Social Links - Always Visible */}
+          <div className="flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
@@ -78,65 +77,15 @@ const Navigation = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 text-foreground/60 hover:text-electric-cyan transition-all duration-300 rounded-lg hover:bg-dark-card/50 hover:drop-shadow-glow border border-transparent hover:border-electric-cyan/30"
+                  className="p-1.5 lg:p-2 text-foreground/60 hover:text-electric-cyan transition-all duration-300 rounded-lg hover:bg-dark-card/50 hover:drop-shadow-glow border border-transparent hover:border-electric-cyan/30"
                   aria-label={social.label}
                 >
-                  <Icon size={18} />
+                  <Icon size={16} className="lg:w-5 lg:h-5" />
                 </a>
               );
             })}
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-foreground/80 hover:text-electric-cyan transition-all duration-300 hover:drop-shadow-glow"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden border-t border-electric-cyan/20 bg-dark-card/90 backdrop-blur-xl">
-            <div className="py-6 space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block px-4 py-2 font-medium transition-all duration-300 ${
-                    location.pathname === item.path
-                      ? 'text-electric-cyan bg-electric-cyan/10 border-l-2 border-electric-cyan drop-shadow-glow'
-                      : 'text-foreground/80 hover:text-electric-cyan hover:bg-dark-card/50 hover:border-l-2 hover:border-electric-cyan/50'
-                  } rounded-lg border-l-2 border-transparent`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              
-              {/* Mobile Social Links */}
-              <div className="flex items-center justify-center space-x-6 pt-4 border-t border-electric-cyan/20">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 text-foreground/60 hover:text-electric-cyan transition-all duration-300 hover:drop-shadow-glow"
-                      aria-label={social.label}
-                    >
-                      <Icon size={20} />
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </nav>
   );
