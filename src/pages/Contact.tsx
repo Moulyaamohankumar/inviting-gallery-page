@@ -255,7 +255,7 @@ const Contact = () => {
               <h3 className="font-semibold mb-4">Quick Actions</h3>
               <div className="space-y-3">
                 <a 
-                  href="/resume.pdf" 
+                  href="/Veereshk_resume.pdf" 
                   download 
                   className="btn-secondary w-full justify-center"
                 >

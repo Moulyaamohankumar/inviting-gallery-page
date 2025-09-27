@@ -1,6 +1,7 @@
 import { Code, Database, Palette, Zap, ArrowRight } from 'lucide-react';
 import { Suspense } from 'react';
 import Scene3D from '@/components/3d/Scene3D';
+import { useNavigate } from 'react-router-dom';
 
 const skillCategories = [
   {
@@ -38,6 +39,7 @@ const skillCategories = [
 ];
 
 const SkillsPreview = () => {
+  const navigate = useNavigate();
   return (
     <section className="section-padding relative overflow-hidden">
       {/* 3D Background */}
@@ -119,7 +121,10 @@ const SkillsPreview = () => {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <button className="btn-secondary group relative overflow-hidden">
+          <button
+            className="btn-secondary group relative overflow-hidden"
+            onClick={() => navigate('/skills')}
+          >
             <span className="relative z-10">Explore All Skills</span>
             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 relative z-10" />
           </button>

@@ -30,7 +30,7 @@ const HeroSection = () => {
           <div className="space-y-6 mb-8 animate-slide-up">
             <h1 className="headline-1">
               Hi, I'm{' '}
-              <span className="text-gradient animate-glow">Veeresh S K</span>
+              <span>Veeresh S K</span>
             </h1>
             
             <p className="body-large max-w-3xl mx-auto leading-relaxed">
@@ -48,10 +48,14 @@ const HeroSection = () => {
               <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Link>
             
-            <a href="/resume.pdf" download className="btn-secondary group">
-              <Download className="mr-2 w-5 h-5 transition-transform group-hover:-translate-y-0.5" />
-              Download Resume
-            </a>
+              <a 
+                href="/Veereshk_resume.pdf" 
+                download 
+                className="btn-secondary group font-semibold transition-all duration-300 hover:font-extrabold hover:text-black hover:bg-gradient-to-r hover:from-primary hover:to-accent"
+              >
+                <Download className="mr-2 w-5 h-5 transition-transform group-hover:-translate-y-0.5 group-hover:text-black" />
+                <span className="transition-all duration-300 group-hover:text-black group-hover:font-extrabold">Download Resume</span>
+              </a>
           </div>
 
           {/* Enhanced Stats Grid */}
