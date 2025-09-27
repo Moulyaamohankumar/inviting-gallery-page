@@ -1,6 +1,7 @@
 import { ExternalLink, Github, Sparkles, Rocket, Brain, ArrowRight } from 'lucide-react';
 import { Suspense } from 'react';
 import Scene3D from '@/components/3d/Scene3D';
+import { useNavigate } from 'react-router-dom';
 
 const projects = [
   {
@@ -36,6 +37,7 @@ const projects = [
 ];
 
 const FeaturedProjects = () => {
+  const navigate = useNavigate();
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Live':
@@ -78,7 +80,7 @@ const FeaturedProjects = () => {
           {projects.map((project, index) => {
             const Icon = project.icon;
             return (
-              <div key={index} className="card-elevated group relative">
+              <div key={index} className="card-elevated group relative bg-white/60 dark:bg-dark/60 backdrop-blur">
                 {/* Gradient Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}></div>
                 
@@ -138,7 +140,10 @@ const FeaturedProjects = () => {
 
         {/* View All Projects */}
         <div className="text-center mt-12">
-          <button className="btn-accent group relative overflow-hidden">
+          <button
+            className="btn-accent group relative overflow-hidden"
+            onClick={() => navigate('/achievements')}
+          >
             <span className="relative z-10">View All Projects</span>
             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 relative z-10" />
           </button>

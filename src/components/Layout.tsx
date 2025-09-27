@@ -32,16 +32,18 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-4 right-4 z-50 transition-all duration-700 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${
         scrolled 
           ? 'scale-95' 
           : 'scale-100'
       }`}
     >
-      {/* Corner Navigation */}
-      <div className="flex flex-col space-y-3">
-        {/* Navigation Links */}
-        <div className="flex flex-col space-y-1 bg-dark-surface/20 backdrop-blur-2xl rounded-2xl border border-electric-cyan/20 px-3 py-3 shadow-2xl">
+      {/* Top Navigation: Logo, Social Links, Nav Links */}
+      <div className="flex flex-row items-center space-x-6 max-w-l mx-auto px-2 py-1">
+
+
+        {/* Nav Links Last */}
+        <div className="flex flex-row space-x-2 bg-dark-surface/20 backdrop-blur-2xl rounded-2xl border border-electric-cyan/20 px-3 py-3 shadow-2xl">
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -59,33 +61,6 @@ const Navigation = () => {
             </Link>
           ))}
         </div>
-
-        {/* Social Links */}
-        <div className="flex flex-col space-y-1 bg-dark-surface/20 backdrop-blur-2xl rounded-2xl border border-electric-cyan/20 px-3 py-3 shadow-2xl">
-          {socialLinks.map((social) => {
-            const Icon = social.icon;
-            return (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 text-foreground/60 hover:text-electric-cyan transition-all duration-300 rounded-xl hover:bg-electric-cyan/10 hover:drop-shadow-glow group flex items-center justify-center"
-                aria-label={social.label}
-              >
-                <Icon size={16} className="group-hover:scale-110 transition-transform duration-300" />
-              </a>
-            );
-          })}
-        </div>
-
-        {/* Logo */}
-        <Link 
-          to="/" 
-          className="text-sm font-heading font-bold bg-gradient-to-r from-electric-cyan via-neon-pink to-electric-cyan bg-clip-text text-transparent hover:scale-105 transition-all duration-300 hover:drop-shadow-glow text-center bg-dark-surface/20 backdrop-blur-2xl rounded-2xl border border-electric-cyan/20 px-3 py-3 shadow-2xl"
-        >
-          VS
-        </Link>
       </div>
     </nav>
   );
@@ -98,8 +73,8 @@ const Footer = () => {
     <footer className="bg-dark-card border-t border-electric-cyan/20">
       <div className="container-custom py-12">
         <div className="text-center">
-          <h3 className="text-xl font-heading font-bold mb-4 text-electric-cyan drop-shadow-glow">Veeresh S K</h3>
-          <p className="text-foreground/70 mb-6 max-w-md mx-auto">
+          <h3 className="text-xl font-heading font-bold mb-4 text-white drop-shadow-glow">Veeresh S K</h3>
+          <p className="text-white mb-6 max-w-md mx-auto">
             Full-Stack Developer passionate about building innovative solutions with modern technologies.
           </p>
           
@@ -108,7 +83,7 @@ const Footer = () => {
               href="https://github.com/veereshsk1249"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 text-foreground/60 hover:text-electric-cyan transition-all duration-300 rounded-lg hover:bg-dark-card/50 hover:drop-shadow-glow border border-transparent hover:border-electric-cyan/30"
+              className="p-3 text-white hover:text-electric-cyan transition-all duration-300 rounded-lg hover:bg-dark-card/50 hover:drop-shadow-glow border border-transparent hover:border-electric-cyan/30"
               aria-label="GitHub"
             >
               <Github size={20} />
@@ -117,14 +92,14 @@ const Footer = () => {
               href="https://linkedin.com/in/veeresh-sk"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 text-foreground/60 hover:text-electric-cyan transition-all duration-300 rounded-lg hover:bg-dark-card/50 hover:drop-shadow-glow border border-transparent hover:border-electric-cyan/30"
+              className="p-3 text-white hover:text-electric-cyan transition-all duration-300 rounded-lg hover:bg-dark-card/50 hover:drop-shadow-glow border border-transparent hover:border-electric-cyan/30"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
             </a>
             <a
               href="mailto:veereshsk1249@gmail.com"
-              className="p-3 text-foreground/60 hover:text-electric-cyan transition-all duration-300 rounded-lg hover:bg-dark-card/50 hover:drop-shadow-glow border border-transparent hover:border-electric-cyan/30"
+              className="p-3 text-white hover:text-electric-cyan transition-all duration-300 rounded-lg hover:bg-dark-card/50 hover:drop-shadow-glow border border-transparent hover:border-electric-cyan/30"
               aria-label="Email"
             >
               <Mail size={20} />
@@ -132,7 +107,7 @@ const Footer = () => {
           </div>
           
           <div className="pt-8 border-t border-electric-cyan/20">
-            <p className="caption text-foreground/50">
+            <p className="caption text-white">
               © {currentYear} Veeresh S K. All rights reserved.
             </p>
           </div>

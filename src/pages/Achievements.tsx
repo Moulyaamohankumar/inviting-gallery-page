@@ -2,18 +2,18 @@ import { Trophy, Users, Code, Award, Target, TrendingUp } from 'lucide-react';
 
 const achievements = [
   {
-    type: 'hackathon',
-    icon: Trophy,
-    title: 'Google Gen AI Hackathon - Team Lead',
-    description: 'Successfully led a cross-functional team to achieve a Top National Submission out of 100+ teams. Developed an innovative emotional support web application utilizing the Gemini API.',
+    type: 'project',
+    icon: Code,
+    title: 'Krivya - Ask Krivya',
+    description: 'AI-driven Fact-Checker that uses BERT/ROBERTA models to check the facts and provide reliable verification.',
     highlights: [
-      'Top National Submission',
-      'Led cross-functional team',
-      'Emotional support web app',
-      'Gemini API integration'
+      'BERT/ROBERTA model integration',
+      'AI-powered fact checking',
+      'Natural language understanding',
+      'Reliable verification'
     ],
-    year: '2024',
-    category: 'Leadership & Innovation'
+    year: '2025',
+    category: 'AI & Backend'
   },
   {
     type: 'competition',
@@ -132,7 +132,7 @@ const Achievements = () => {
           {achievements.map((achievement, index) => {
             const Icon = achievement.icon;
             return (
-              <div key={index} className="card-elevated">
+                <div key={index} className="card-elevated bg-white/60 dark:bg-dark/60 backdrop-blur">
                 <div className="grid lg:grid-cols-12 gap-8">
                   {/* Icon & Year */}
                   <div className="lg:col-span-2">
@@ -172,7 +172,7 @@ const Achievements = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <div className="card-surface max-w-2xl mx-auto">
+            <div className="card-surface max-w-2xl mx-auto">
             <h3 className="text-xl font-semibold mb-4">Ready for New Challenges</h3>
             <p className="text-muted-foreground mb-6">
               These achievements represent just the beginning. I'm excited to take on new challenges 

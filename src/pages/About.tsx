@@ -19,7 +19,7 @@ const About = () => {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Story */}
-            <div className="card-elevated">
+            <div className="card-elevated bg-white/60 dark:bg-dark/60 backdrop-blur">
               <h2 className="headline-3 mb-6">My Story</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
@@ -46,7 +46,7 @@ const About = () => {
             </div>
 
             {/* Values */}
-            <div className="card-elevated">
+            <div className="card-elevated bg-white/60 dark:bg-dark/60 backdrop-blur">
               <h2 className="headline-3 mb-6">What Drives Me</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
